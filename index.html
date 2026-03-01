@@ -4,148 +4,333 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gambion.net | White Label Gaming Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#fff;color:#111;}
-header{background:#000;padding:20px 8%;display:flex;justify-content:space-between;align-items:center;position:fixed;width:100%;top:0;z-index:1000;}
-.logo{font-size:26px;font-weight:800;color:#fff;}
-.logo span{color:#E10600;}
-nav a{color:#fff;text-decoration:none;margin-left:25px;font-weight:500;}
-section{padding:100px 8%;text-align:center;}
-.hero{background:linear-gradient(to right,#000,#111);color:#fff;padding-top:160px;}
-.hero h1{font-size:48px;margin-bottom:20px;}
-.hero p{font-size:20px;color:#ccc;margin-bottom:40px;}
-.btn{padding:14px 28px;background:#E10600;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;margin:8px;display:inline-block;}
-.btn:hover{background:#b30400;}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;}
-.stat-box{padding:30px;border:1px solid #eee;border-radius:8px;}
-.dark{background:#111;color:#fff;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.card{padding:30px;border:1px solid #eee;border-radius:8px;}
-.card h3{color:#E10600;margin-bottom:15px;}
-.platforms div{padding:15px;border:1px solid #E10600;border-radius:6px;}
-.faq-item{margin-bottom:20px;text-align:left;}
-footer{background:#000;color:#aaa;text-align:center;padding:20px;}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:600;}
-@media(max-width:768px){.hero h1{font-size:32px;}}
+
+/* ===== GLOBAL STYLES ===== */
+
+:root {
+  --primary: #E10600;
+  --dark: #0f0f0f;
+  --light: #ffffff;
+  --gray: #777;
+  --container: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #111;
+}
+
+.container {
+  max-width: var(--container);
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+
+header {
+  background: var(--dark);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: #fff;
+  padding: 150px 0 100px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 35px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 8px;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #b30400;
+}
+
+/* ===== SECTIONS ===== */
+
+section {
+  padding: 90px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.dark-section {
+  background: var(--dark);
+  color: #fff;
+}
+
+.dark-section .card {
+  background: #1c1c1c;
+  border: 1px solid #333;
+}
+
+.platform-box {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+}
+
+/* ===== FAQ ===== */
+
+.faq-item {
+  margin-bottom: 25px;
+}
+
+.faq-item strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== CONTACT ===== */
+
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  background: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 14px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 992px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 30px;
+  }
+  .hero p {
+    font-size: 16px;
+  }
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="logo">GAM<span>BION</span></div>
-<nav>
-<a href="#solutions">Solutions</a>
-<a href="#features">Features</a>
-<a href="#contact">Contact</a>
-</nav>
+  <div class="container nav-wrapper">
+    <div class="logo">GAM<span>BION</span></div>
+    <nav>
+      <ul>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-<h1>Launch Your iGaming Brand in Just 1 Hour</h1>
-<p>Premium White Label, Turnkey & API Gaming Infrastructure</p>
-<a href="#contact" class="btn">Get Free Demo</a>
-<a href="#contact" class="btn">Start Now</a>
+  <div class="container">
+    <h1>Launch Your iGaming Brand in Just 1 Hour</h1>
+    <p>Enterprise White Label, Turnkey & API Gaming Infrastructure</p>
+    <a href="#contact" class="btn">Get Free Demo</a>
+    <a href="#contact" class="btn">Start Now</a>
+  </div>
 </section>
 
-<section>
-<h2>Our Platform Strength</h2>
-<div class="stats">
-<div class="stat-box"><h3>100+</h3><p>Game Providers</p></div>
-<div class="stat-box"><h3>6000+</h3><p>Games & Markets</p></div>
-<div class="stat-box"><h3>99.9%</h3><p>Server Uptime</p></div>
-<div class="stat-box"><h3>24/7</h3><p>Technical Support</p></div>
-</div>
+<section id="solutions">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Solutions</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Turnkey Platform</h3>
+        <p>Complete sportsbook & casino solution with wallet & admin system.</p>
+      </div>
+      <div class="card">
+        <h3>White Label</h3>
+        <p>Launch your own branded gaming platform with full backend support.</p>
+      </div>
+      <div class="card">
+        <h3>API Integration</h3>
+        <p>Integrate live odds, casino feeds & wallet APIs easily.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="solutions" class="dark">
-<h2>Our Solutions</h2>
-<div class="grid">
-<div class="card">
-<h3>Turnkey Platform</h3>
-<p>Fully managed sportsbook & casino solution with wallet & admin dashboard.</p>
-</div>
-<div class="card">
-<h3>White Label</h3>
-<p>Launch your own branded gaming platform with custom domain & logo.</p>
-</div>
-<div class="card">
-<h3>API Integration</h3>
-<p>Integrate real-time odds, score feeds & casino APIs into your system.</p>
-</div>
-</div>
+<section id="features" class="dark-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Advanced Features</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card"><h3>Real-Time Odds</h3></div>
+      <div class="card"><h3>Secure Wallet</h3></div>
+      <div class="card"><h3>Agent System</h3></div>
+      <div class="card"><h3>Admin Dashboard</h3></div>
+    </div>
+  </div>
 </section>
 
-<section id="features">
-<h2>Advanced Features</h2>
-<div class="grid">
-<div class="card"><h3>Real-Time Odds</h3><p>Live sports markets & dynamic betting.</p></div>
-<div class="card"><h3>Secure Wallet</h3><p>Encrypted deposits & withdrawals.</p></div>
-<div class="card"><h3>Agent System</h3><p>Sub-agent & commission management.</p></div>
-<div class="card"><h3>Admin Dashboard</h3><p>Full reporting & risk management tools.</p></div>
-</div>
-</section>
-
-<section class="dark">
-<h2>Supported Platforms</h2>
-<div class="grid platforms">
-<div>Radhe</div>
-<div>Sky Exchange</div>
-<div>Aura</div>
-<div>King</div>
-<div>Diamond</div>
-<div>SG365</div>
-</div>
-</section>
-
-<section>
-<h2>How It Works</h2>
-<div class="grid">
-<div class="card"><h3>Step 1</h3><p>Contact & choose brand name.</p></div>
-<div class="card"><h3>Step 2</h3><p>Platform setup within 1 hour.</p></div>
-<div class="card"><h3>Step 3</h3><p>Add agents & start earning.</p></div>
-</div>
-</section>
-
-<section>
-<h2>Business Advantages</h2>
-<div class="grid">
-<div class="card"><h3>Low Investment</h3></div>
-<div class="card"><h3>Fast ROI</h3></div>
-<div class="card"><h3>Scalable Model</h3></div>
-<div class="card"><h3>Full Backend Support</h3></div>
-</div>
-</section>
-
-<section>
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<strong>How fast can I launch?</strong>
-<p>Within 1 hour after confirmation.</p>
-</div>
-<div class="faq-item">
-<strong>Do you provide backend support?</strong>
-<p>Yes, 24/7 technical assistance included.</p>
-</div>
-<div class="faq-item">
-<strong>Can I customize branding?</strong>
-<p>Yes, full white label branding available.</p>
-</div>
-</section>
-
-<section id="contact" class="dark">
-<h2>Start Your Gaming Business Today 🚀</h2>
-<p>WhatsApp: +17743372572</p>
-<p>Telegram: @Mark77771111</p>
-<br>
-<a href="https://wa.me/17743372572" class="btn">Contact on WhatsApp</a>
+<section id="contact">
+  <div class="container contact">
+    <div class="section-title">
+      <h2>Start Your Gaming Business Today 🚀</h2>
+    </div>
+    <p>WhatsApp: +17743372572</p>
+    <p>Telegram: @Mark77771111</p>
+    <a href="https://wa.me/17743372572" class="btn">Contact on WhatsApp</a>
+  </div>
 </section>
 
 <footer>
-© 2026 Gambion.net | All Rights Reserved
+  © 2026 Gambion.net | All Rights Reserved
 </footer>
 
 <a href="https://wa.me/17743372572" class="whatsapp">WhatsApp</a>
