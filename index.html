@@ -517,7 +517,7 @@ counter.innerText=target+"+";
 update();
 });
 </script>
-  <script>
+ <script>
 
 function sendToWhatsApp(e){
 
@@ -528,16 +528,18 @@ var company = document.getElementById("company").value;
 var country = document.getElementById("country").value;
 var number = document.getElementById("whatsapp").value;
 var interest = document.getElementById("interest").value;
+var platform = document.getElementById("platform").value;
 
 var message =
-"New Gambion Consultation Request %0A%0A" +
+"*New Gambion Consultation Request*%0A%0A" +
 "Name: " + name + "%0A" +
 "Company: " + company + "%0A" +
 "Country: " + country + "%0A" +
 "WhatsApp: " + number + "%0A" +
-"Interest: " + interest;
+"Service: " + interest + "%0A" +
+"Platform Preference: " + platform;
 
-var url = "https://wa.me/17743372572?text=" + message;
+var url = "https://wa.me/919479330796?text=" + message;
 
 window.open(url, "_blank");
 
