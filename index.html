@@ -459,18 +459,22 @@ grid-template-columns:1fr;
 <section id="contact">
 <div class="container">
 <div class="section-title"><h2>Request Consultation</h2></div>
-<form>
-<input type="text" placeholder="Full Name">
-<input type="text" placeholder="Company Name">
-<input type="text" placeholder="Country">
-<input type="text" placeholder="WhatsApp Number">
-<select>
+<form onsubmit="sendToWhatsApp(event)">
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="text" id="company" placeholder="Company Name">
+
+<input type="text" id="country" placeholder="Country">
+
+<input type="text" id="whatsapp" placeholder="WhatsApp Number" required>
+
+<select id="interest">
 <option>Interested In</option>
 <option>Turnkey</option>
 <option>White Label</option>
 <option>API Integration</option>
 </select>
-<button type="submit">Submit Request</button>
+<button type="submit">Send on WhatsApp</button>
 </form>
 <p style="text-align:center;">WhatsApp: +919479330796</p>
 <p style="text-align:center;">Telegram: @Mark77771111</p>
@@ -504,6 +508,33 @@ counter.innerText=target+"+";
 }
 update();
 });
+</script>
+  <script>
+
+function sendToWhatsApp(e){
+
+e.preventDefault();
+
+var name = document.getElementById("name").value;
+var company = document.getElementById("company").value;
+var country = document.getElementById("country").value;
+var number = document.getElementById("whatsapp").value;
+var interest = document.getElementById("interest").value;
+
+var message =
+"New Gambion Consultation Request %0A%0A" +
+"Name: " + name + "%0A" +
+"Company: " + company + "%0A" +
+"Country: " + country + "%0A" +
+"WhatsApp: " + number + "%0A" +
+"Interest: " + interest;
+
+var url = "https://wa.me/17743372572?text=" + message;
+
+window.open(url, "_blank");
+
+}
+
 </script>
 
 </body>
